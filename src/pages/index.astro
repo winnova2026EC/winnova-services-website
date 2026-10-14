@@ -81,44 +81,5 @@ const modules = [
   <footer class="site-footer container"><div class="footer-top"><a class="brand" href="#inicio" aria-label="Win Nova, volver al inicio"><Image src={logo} alt="WinNova Solutions" width={190} height={65} loading="lazy" /></a><p>Soluciones que conectan.<br />Personas que acompañan.</p><a class="text-link" href="#inicio">Volver al inicio <Icon name="up" /></a></div><div class="footer-bottom"><span>© {new Date().getFullYear()} Win Nova Solutions</span><span>Tecnología para empresas en Ecuador</span></div></footer>
 </Layout>
 <script>
-  const menuButton = document.querySelector<HTMLButtonElement>('.menu-toggle');
-  const mobileNav = document.querySelector<HTMLElement>('#mobile-nav');
-  const closeMenu = () => {
-    if (!menuButton || !mobileNav) return;
-    menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.setAttribute('aria-label', 'Abrir menú');
-    mobileNav.hidden = true;
-  };
-  menuButton?.addEventListener('click', () => {
-    if (!mobileNav) return;
-    const open = menuButton.getAttribute('aria-expanded') !== 'true';
-    menuButton.setAttribute('aria-expanded', String(open));
-    menuButton.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
-    mobileNav.hidden = !open;
-  });
-  mobileNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && menuButton?.getAttribute('aria-expanded') === 'true') { closeMenu(); menuButton.focus(); }
-  });
-  const choices = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-solution]'));
-  const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-panel]'));
-  const setProduct = (id: string) => {
-    if (!panels.some(panel => panel.dataset.panel === id)) return;
-    panels.forEach(panel => { panel.hidden = panel.dataset.panel !== id; });
-    choices.forEach(choice => {
-      const active = choice.dataset.solution === id;
-      choice.classList.toggle('active', active);
-      if (active) choice.setAttribute('aria-current', 'true');
-      else choice.removeAttribute('aria-current');
-    });
-  };
-  setProduct(panels.some(panel => panel.dataset.panel === location.hash.slice(1)) ? location.hash.slice(1) : 'contable');
-  choices.forEach(choice => choice.addEventListener('click', event => {
-    event.preventDefault();
-    const id = choice.dataset.solution!;
-    setProduct(id);
-    history.pushState(null, '', `#${id}`);
-  }));
-  document.querySelectorAll<HTMLAnchorElement>('[data-hero-product]').forEach(link => link.addEventListener('click', () => setProduct(link.dataset.heroProduct!)));
-  window.addEventListener('hashchange', () => setProduct(location.hash.slice(1) || 'contable'));
+  import '../scripts/interactions';
 </script>
