@@ -1,23 +1,24 @@
+---
+import '../styles/global.css';
+import '../styles/fonts.css';
+---
 <!doctype html>
-<html lang="en">
+<html lang="es-EC">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#211747" />
+		<meta name="description" content="Win Nova: contabilidad, facturación electrónica, descarga de comprobantes SRI y Guías de Remisión Electrónicas para el sector camaronero. Soporte en Ecuador." />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<link rel="preload" href="/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="preload" href="/fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin />
+		<meta property="og:title" content="Win Nova | Tu negocio, en buena conexión" />
+		<meta property="og:description" content="Contabilidad, facturación electrónica y gestión de comprobantes. Tecnología hecha para Ecuador, con personas a tu lado." />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_EC" />
+		<title>Win Nova | Tu negocio, en buena conexión</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

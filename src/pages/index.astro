@@ -1,11 +1,124 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Icon from '../components/Icon.astro';
+import Connection from '../components/Connection.astro';
+import { Image } from 'astro:assets';
+import logo from '../assets/imagenes/logo.jpeg';
+const whatsapp = 'https://wa.me/593984206215?text=';
+const contact = whatsapp + encodeURIComponent('Hola, me gustaría conocer las soluciones de Win Nova para mi negocio.');
+const products = [
+  { id: 'contable', name: 'Cubo Contable', category: 'Tu empresa, en un solo lugar', icon: 'cube', color: 'blue', title: 'Menos tareas sueltas. Más control de tu negocio.', description: 'Conecta tu contabilidad, facturación e inventarios en una plataforma web. Trabaja con tu equipo y tu contador, desde cualquier lugar y dispositivo.', features: ['Contabilidad y balances', 'Inventarios y compras', 'Facturación electrónica y ATS', 'Cuentas por cobrar y pagar'], cta: 'Conocer Cubo Contable', message: 'Hola, quiero conocer Cubo Contable y cómo se adapta a mi empresa.' },
+  { id: 'edocs', name: 'Cubo e-Docs', category: 'De la emisión a la entrega', icon: 'document', color: 'pink', title: 'Tus documentos electrónicos, con el camino resuelto.', description: 'Automatiza la firma, el envío al SRI y la entrega de comprobantes a tus clientes y proveedores. Consulta su autorización desde un portal en la nube.', features: ['Firma automática de XML', 'Envío y consulta al SRI', 'Correos automáticos', 'Portal de comprobantes'], cta: 'Conocer Cubo e-Docs', message: 'Hola, me gustaría conocer Cubo e-Docs para mis documentos electrónicos.' },
+  { id: 'descargas', name: 'Descarga SRI', category: 'Del comprobante a la información', icon: 'download', color: 'amber', title: 'Más información a mano. Menos trabajo manual.', description: 'Descarga de forma masiva tus comprobantes emitidos y recibidos del SRI. Obtén los XML, genera RIDE en PDF y organiza la información de varios contribuyentes.', features: ['Descarga masiva de XML', 'Generación de RIDE en PDF', 'Registros para ATS', 'Reportes y exportación a Excel'], cta: 'Conocer Descarga SRI', message: 'Hola, quiero información sobre la descarga masiva de comprobantes del SRI.' },
+  { id: 'guias-camaroneras', name: 'Guías electrónicas', category: 'Para el sector camaronero', icon: 'truck', color: 'cyan', title: 'De la piscina al destino. Tus guías, en menos tiempo.', description: 'Solución 100 % web para generar y gestionar Guías de Remisión Electrónicas del sector camaronero. Agiliza el registro de tu operación y accede desde cualquier navegador y diferentes ubicaciones.', features: ['Camaroneras y piscinas de origen', 'Artículos y productos', 'Transportistas y choferes', 'Gestión de destinos', 'Cantidades expresadas en libras', 'Usuarios y contraseñas', 'Roles y permisos por función', 'Generación ágil de guías electrónicas'], visualFeatures: ['Camaroneras y piscinas', 'Transportistas y choferes', 'Destinos y libras', 'Guías electrónicas'], cta: 'Conocer Guías electrónicas', message: 'Hola, quiero conocer la solución de Guías de Remisión Electrónicas para el sector camaronero.' },
+];
+const productDetails: Record<string, { subtitle: string; kicker: string; hub: string; hubDescription: string; note: string }> = {
+  contable: { subtitle: 'Contabilidad en la nube', kicker: 'Todo empieza con una visión completa', hub: 'Tu empresa', hubDescription: 'Una sola plataforma', note: 'Mac, Windows o Linux. Tú eliges.' },
+  edocs: { subtitle: 'Facturación electrónica', kicker: 'Un proceso conectado de principio a fin', hub: 'Tu comprobante', hubDescription: 'Firma, envío y consulta', note: 'Consulta tus documentos desde el portal web.' },
+  descargas: { subtitle: 'Comprobantes en orden', kicker: 'Tu información, lista para trabajar', hub: 'Tus documentos', hubDescription: 'Emitidos y recibidos', note: 'Varios contribuyentes. Un mismo sistema.' },
+  'guias-camaroneras': { subtitle: 'Sector camaronero', kicker: 'Guías de Remisión Electrónicas para tu operación', hub: 'Tu movilización', hubDescription: 'Del origen al destino', note: 'Acceso web con usuarios, roles y permisos.' },
+};
+const modules = [
+  { icon: 'document', title: 'Ventas y facturación', text: 'Facturación electrónica, generación de ATS y gestión de clientes. Conecta tu operación comercial con tu contabilidad.' },
+  { icon: 'box', title: 'Inventarios y compras', text: 'Administra inventarios o servicios, proveedores, importaciones y el ingreso de compras y retenciones mediante archivos TXT.' },
+  { icon: 'wallet', title: 'Finanzas y tesorería', text: 'Organiza cuentas por cobrar y pagar, bancos, cajas, cheques y tarjetas, junto con el control de activos fijos.' },
+  { icon: 'chart', title: 'Contabilidad y reportes', text: 'Consulta balances, mayores y libros diarios. Trabaja con información centralizada para entender el estado de tu empresa.' },
+  { icon: 'users', title: 'Equipo y permisos', text: 'Colabora con varios usuarios. Define roles y permisos para que cada persona acceda a la información que necesita.' },
+  { icon: 'connect', title: 'Integraciones y flexibilidad', text: 'Conecta aplicaciones externas mediante APIs y adapta las funcionalidades a las necesidades específicas de tu empresa.' },
+];
 ---
-
 <Layout>
-	<Welcome />
+  <a class="skip-link" href="#contenido">Ir al contenido</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="#inicio" aria-label="Win Nova, inicio"><Image src={logo} alt="WinNova Solutions" width={200} height={69} loading="eager" /></a>
+    <nav class="desktop-nav" aria-label="Navegación principal"><a href="#soluciones">Soluciones</a><a href="#nosotros">Nosotros</a><a href="#soporte">Soporte</a></nav>
+    <a class="button button-small header-contact" href={contact} target="_blank" rel="noopener noreferrer">Hablemos <Icon name="chat" /></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú"><Icon name="menu" /></button>
+  </div><nav id="mobile-nav" class="mobile-nav" aria-label="Navegación móvil" hidden><a href="#soluciones">Soluciones</a><a href="#nosotros">Nosotros</a><a href="#soporte">Soporte</a><a href={contact} target="_blank" rel="noopener noreferrer">Hablemos por WhatsApp</a></nav></header>
+  <main id="contenido">
+    <section class="hero container" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy"><p class="location"><span class="location-mark" aria-hidden="true"></span> Tecnología hecha para Ecuador</p>
+        <h1 id="hero-title">Tu negocio,<br />en buena<br />conexión.</h1>
+        <p class="hero-description">Contabilidad, facturación electrónica, comprobantes y guías de remisión. Soluciones para organizar tu empresa y seguir creciendo.</p>
+        <div class="hero-actions"><a class="button" href={contact} target="_blank" rel="noopener noreferrer">Hablemos de tu negocio <Icon name="chat" /></a><a class="text-link" href="#soluciones">Explorar soluciones <Icon name="down" /></a></div>
+        <div class="hero-assurance"><Icon name="check-circle" /><span>Software en la nube. Personas a tu lado.</span></div>
+      </div>
+      <div class="hero-art"><Connection /><div class="art-caption"><span class="status-dot" aria-hidden="true"></span> Cada parte de tu negocio, conectada.</div></div>
+    </section>
+    <div class="trust-strip"><div class="container trust-inner">
+      <div><span class="trust-number">Desde 2014</span><span>implementando software</span></div>
+      <div><Icon name="globe" /><span>Soporte en todo<br /><strong>el Ecuador</strong></span></div>
+      <div><Icon name="cloud" /><span>Tu información disponible<br /><strong>desde cualquier lugar</strong></span></div>
+      <div><Icon name="refresh" /><span>Servicio anual con<br /><strong>actualizaciones incluidas</strong></span></div>
+    </div></div>
+    <section class="solutions container section-space" id="soluciones" aria-labelledby="solutions-title">
+      <div class="section-heading"><div><p class="section-label">Nuestras soluciones</p><h2 id="solutions-title">Cuatro soluciones.<br />Un negocio conectado.</h2></div><p>Elige lo que tu empresa necesita hoy.<br />Nosotros te ayudamos a dar el siguiente paso.</p></div>
+      <div class="solution-selector" aria-label="Elige una solución">{products.map((p, i) => <a href={`#${p.id}`} class:list={['solution-choice', p.color, { active: i === 0 }]} data-solution={p.id} aria-current={i === 0 ? 'true' : undefined}><span class="product-icon"><Icon name={p.icon} /></span><span><strong>{p.name}</strong><span>{productDetails[p.id].subtitle}</span></span><Icon name="diagonal" /></a>)}</div>
+      <div class="product-panels">{products.map((p, i) => <article id={p.id} class:list={['product-panel', p.color]} data-panel={p.id}>
+        <div class="product-copy"><p class="product-category">{p.category}</p><h3>{p.title}</h3><p>{p.description}</p><ul class="product-features">{p.features.map(f => <li><Icon name="check" />{f}</li>)}</ul><a class="button" href={whatsapp + encodeURIComponent(p.message)} target="_blank" rel="noopener noreferrer">{p.cta}<Icon name="chat" /></a></div>
+        <div class="product-illustration" aria-label={`Funciones de ${p.name}`}><div class="illustration-header"><span class="product-icon"><Icon name={p.icon} /></span><strong>{p.name}</strong><span class="cloud-label"><Icon name={i === 2 ? 'users' : p.id === 'guias-camaroneras' ? 'globe' : 'cloud'} /> {i === 2 ? 'Multicontribuyente' : p.id === 'guias-camaroneras' ? '100 % web' : 'En la nube'}</span></div>
+          <div class="illustration-body"><span class="illustration-kicker">{productDetails[p.id].kicker}</span>
+            <div class="illustration-hub"><span class="hub-icon"><Icon name={p.icon} /></span><strong>{productDetails[p.id].hub}</strong><span>{productDetails[p.id].hubDescription}</span></div>
+            <div class="connected-features">{(p.visualFeatures ?? p.features).map((f, j) => <div><Icon name={(p.id === 'guias-camaroneras' ? ['waves','truck','globe','document'] : ['document','box','chart','users'])[j]} /><span>{f}</span></div>)}</div>
+            <div class="illustration-note"><Icon name="check-circle" />{productDetails[p.id].note}</div>
+          </div>
+        </div>
+      </article>)}</div>
+    </section>
+    <section class="modules-section" aria-labelledby="modules-title"><div class="container modules-grid">
+      <div class="modules-intro"><p class="section-label">Dentro de Cubo Contable</p><h2 id="modules-title">Cada área.<br />El mismo equipo.</h2><p>De la primera factura al balance final: administra las áreas de tu empresa con información centralizada y en tiempo real.</p><div class="module-symbol" aria-hidden="true"><Icon name="cube" /><span class="symbol-dot one"></span><span class="symbol-dot two"></span><span class="symbol-dot three"></span></div></div>
+      <div class="module-list">{modules.map((m, i) => <details open={i === 0}><summary><span class="module-title"><Icon name={m.icon} />{m.title}</span><span class="expand-mark" aria-hidden="true"></span></summary><p>{m.text}</p></details>)}</div>
+    </div></section>
+    <section class="about container section-space" id="nosotros" aria-labelledby="about-title">
+      <div class="about-brand"><div class="brand-orbit" aria-hidden="true"><span></span><span></span><span></span><div>Desde<br /><strong>2014</strong></div></div><p>Conectamos tecnología.<br /><strong>Acompañamos personas.</strong></p></div>
+      <div class="about-copy"><p class="section-label">Somos Win Nova</p><h2 id="about-title">La tecnología funciona mejor cuando hay alguien a tu lado.</h2><p>Somos un equipo multidisciplinario de profesionales en tecnologías de la información. Implementamos software y brindamos soporte tecnológico de primer nivel en todo el Ecuador.</p><div class="about-values"><div><Icon name="shield" /><h3>Información resguardada</h3><p>Cubo Contable opera en servidores AWS con monitoreo y respaldos permanentes.</p></div><div><Icon name="refresh" /><h3>Siempre al día</h3><p>El servicio anual incluye mejoras y actualizaciones por cambios del SRI, sin cargos adicionales.</p></div></div></div>
+    </section>
+    <section class="support-section" id="soporte" aria-labelledby="support-title"><div class="container support-grid">
+      <div><p class="section-label">Soporte que te acompaña</p><h2 id="support-title">Detrás del software,<br />hay personas.</h2><p>Resuelve tus dudas con nuestro equipo. Consultas ilimitadas por WhatsApp y asistencia remota con Supremo cuando la necesites.</p><div class="support-hours"><Icon name="clock" /><div><strong>Lunes a viernes</strong><span>8:30 a. m. a 6:00 p. m. · Hora de Ecuador</span></div></div></div>
+      <div class="contact-card"><span class="contact-icon"><Icon name="chat" /></span><h3>Conversemos sobre<br />tu próximo paso.</h3><p>Cuéntanos qué necesita tu empresa.<br />Te ayudamos a encontrar la solución.</p><a class="button" href={contact} target="_blank" rel="noopener noreferrer">Escribir por WhatsApp <Icon name="diagonal" /></a><div class="contact-numbers"><a href="https://wa.me/593984206215" target="_blank" rel="noopener noreferrer">098 420 6215</a><a href="https://wa.me/593998445241" target="_blank" rel="noopener noreferrer">099 844 5241</a></div></div>
+    </div></section>
+  </main>
+  <footer class="site-footer container"><div class="footer-top"><a class="brand" href="#inicio" aria-label="Win Nova, volver al inicio"><Image src={logo} alt="WinNova Solutions" width={190} height={65} loading="lazy" /></a><p>Soluciones que conectan.<br />Personas que acompañan.</p><a class="text-link" href="#inicio">Volver al inicio <Icon name="up" /></a></div><div class="footer-bottom"><span>© {new Date().getFullYear()} Win Nova Solutions</span><span>Tecnología para empresas en Ecuador</span></div></footer>
 </Layout>
+<script>
+  const menuButton = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const mobileNav = document.querySelector<HTMLElement>('#mobile-nav');
+  const closeMenu = () => {
+    if (!menuButton || !mobileNav) return;
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', 'Abrir menú');
+    mobileNav.hidden = true;
+  };
+  menuButton?.addEventListener('click', () => {
+    if (!mobileNav) return;
+    const open = menuButton.getAttribute('aria-expanded') !== 'true';
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    mobileNav.hidden = !open;
+  });
+  mobileNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menuButton?.getAttribute('aria-expanded') === 'true') { closeMenu(); menuButton.focus(); }
+  });
+  const choices = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-solution]'));
+  const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-panel]'));
+  const setProduct = (id: string) => {
+    if (!panels.some(panel => panel.dataset.panel === id)) return;
+    panels.forEach(panel => { panel.hidden = panel.dataset.panel !== id; });
+    choices.forEach(choice => {
+      const active = choice.dataset.solution === id;
+      choice.classList.toggle('active', active);
+      if (active) choice.setAttribute('aria-current', 'true');
+      else choice.removeAttribute('aria-current');
+    });
+  };
+  setProduct(panels.some(panel => panel.dataset.panel === location.hash.slice(1)) ? location.hash.slice(1) : 'contable');
+  choices.forEach(choice => choice.addEventListener('click', event => {
+    event.preventDefault();
+    const id = choice.dataset.solution!;
+    setProduct(id);
+    history.pushState(null, '', `#${id}`);
+  }));
+  document.querySelectorAll<HTMLAnchorElement>('[data-hero-product]').forEach(link => link.addEventListener('click', () => setProduct(link.dataset.heroProduct!)));
+  window.addEventListener('hashchange', () => setProduct(location.hash.slice(1) || 'contable'));
+</script>
