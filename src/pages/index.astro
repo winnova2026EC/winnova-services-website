@@ -15,12 +15,17 @@ const edocsAccess = "https://facturacionlinkservices.com/acceso_seguro.php";
 const guidesAccess = "https://guias.facturacionlinkservices.com/login";
 const supremoDownload = "/downloads/Supremo_Winnova.exe";
 
-const container = "mx-auto w-[min(1240px,calc(100%_-_112px))] max-[1100px]:w-[calc(100%_-_72px)] max-[850px]:w-[calc(100%_-_48px)] max-sm:w-[calc(100%_-_40px)]";
-const heading2 = "font-heading text-[clamp(30px,3.2vw,44px)] font-semibold leading-[1.2] tracking-[-0.055em] text-balance max-sm:text-[32px]";
-const sectionLabel = "mb-[15px] text-[16px] font-semibold text-brand-blue max-sm:mb-3 max-sm:text-[14px]";
-const button = "inline-flex min-h-[54px] items-center justify-center gap-4 rounded-lg border border-transparent px-[23px] py-4 text-[17px] font-semibold leading-[1.25] [&_svg]:size-5";
-const textLink = "inline-flex min-h-11 items-center gap-2.5 text-[17px] font-semibold hover:text-brand-blue [&_svg]:size-[19px]";
-const sectionSpace = "py-[108px] max-[850px]:py-[76px] max-sm:py-[58px]";
+const container =
+  "mx-auto w-[min(1240px,calc(100%-112px))] max-desktop:w-[calc(100%-72px)] max-tablet:w-[calc(100%-48px)] max-sm:w-[calc(100%-40px)]";
+const heading2 =
+  "font-heading text-[clamp(30px,3.2vw,44px)] font-semibold leading-[1.2] tracking-[-0.055em] text-balance max-sm:text-[32px]";
+const sectionLabel =
+  "mb-3.75 text-[16px] font-semibold text-brand-blue max-sm:mb-3 max-sm:text-[14px]";
+const button =
+  "inline-flex min-h-13.5 items-center justify-center gap-4 rounded-lg border border-transparent px-5.75 py-4 text-[17px] font-semibold leading-tight [&_svg]:size-5";
+const textLink =
+  "inline-flex min-h-11 items-center gap-2.5 text-[17px] font-semibold hover:text-brand-blue [&_svg]:size-4.75";
+const sectionSpace = "py-27 max-tablet:py-19 max-sm:py-14.5";
 
 const products = [
   {
@@ -185,10 +190,22 @@ const modules = [
 ---
 
 <Layout>
-  <a class="fixed left-3 top-3 z-[100] -translate-y-[150%] bg-ink px-5 py-3 text-white focus:translate-y-0" href="#contenido">Ir al contenido</a>
+  <a
+    class="fixed left-3 top-3 z-100 translate-y-[-150%] bg-ink px-5 py-3 text-white focus:translate-y-0"
+    href="#contenido">Ir al contenido</a
+  >
+
   <header class="sticky top-0 z-30 border-b border-line bg-white">
-    <div class:list={[container, "flex min-h-[94px] items-center justify-between gap-[30px] max-[850px]:min-h-20 max-[850px]:gap-5 max-sm:min-h-[76px] max-sm:gap-3"]}>
-      <a class="inline-block shrink-0 [&_img]:mix-blend-multiply [&_img]:brightness-[1.035] max-[850px]:[&_img]:w-[175px] max-sm:[&_img]:w-40" href="/" aria-label="Winnova Solutions, inicio"
+    <div
+      class:list={[
+        container,
+        "flex min-h-23.5 items-center justify-between gap-7.5 max-tablet:min-h-20 max-tablet:gap-5 max-sm:min-h-19 max-sm:gap-3",
+      ]}
+    >
+      <a
+        class="inline-block shrink-0 [&_img]:mix-blend-multiply [&_img]:brightness-[1.035] max-tablet:[&_img]:w-43.75 max-sm:[&_img]:w-40"
+        href="/"
+        aria-label="Winnova Solutions, inicio"
         ><Image
           src={logo}
           alt="Winnova Solutions"
@@ -197,18 +214,25 @@ const modules = [
           loading="eager"
         /></a
       >
-      <nav class="ml-auto mr-[34px] flex gap-[38px] text-[17px] font-medium max-[850px]:mr-0 max-[850px]:gap-[22px] max-[850px]:text-[15px] max-sm:hidden [&_a]:py-3 [&_a:hover]:text-brand-blue" aria-label="Navegación principal">
+      <nav
+        class="ml-auto mr-8.5 flex gap-9.5 text-[17px] font-medium max-tablet:mr-0 max-tablet:gap-5.5 max-tablet:text-[15px] max-sm:hidden [&_a]:py-3 [&_a:hover]:text-brand-blue"
+        aria-label="Navegación principal"
+      >
         <a href="#soluciones">Soluciones</a><a href="#nosotros">Nosotros</a><a
-          href="#soporte">Soporte</a>
+          href="#soporte">Soporte</a
+        >
       </nav>
       <a
-        class:list={[button, "min-h-[46px] bg-ink px-5 py-3 text-white hover:bg-[#453176] max-[850px]:px-3.5 max-[850px]:text-[15px] max-sm:hidden"]}
+        class:list={[
+          button,
+          "min-h-11.5 bg-[linear-gradient(115deg,#2454c6_0%,#7137c8_52%,#b42375_100%)] px-5 py-3 text-white shadow-[0_8px_20px_rgba(93,45,174,.22)] hover:brightness-110 max-tablet:px-3.5 max-tablet:text-[15px] max-sm:hidden",
+        ]}
         href={contact}
         target="_blank"
         rel="noopener noreferrer">Hablemos <Icon name="chat" /></a
       >
       <button
-        class="menu-toggle hidden size-[46px] items-center justify-center rounded-md border border-line bg-white text-ink max-sm:flex"
+        class="menu-toggle hidden size-11.5 items-center justify-center rounded-md border border-line bg-white text-ink max-sm:flex"
         aria-expanded="false"
         aria-controls="mobile-nav"
         aria-label="Abrir menú"><Icon name="menu" /></button
@@ -222,12 +246,23 @@ const modules = [
       <a href="#soluciones">Soluciones</a><a href="#nosotros">Nosotros</a><a
         href="#soporte">Soporte</a
       ><a href={contact} target="_blank" rel="noopener noreferrer"
-        >Hablemos por WhatsApp</a>
+        >Hablemos por WhatsApp</a
+      >
     </nav>
-    <div class="bg-ink text-white">
-      <div class:list={[container, "flex min-h-[42px] items-center justify-end gap-[22px] text-[14px] max-sm:min-h-14 max-sm:justify-center max-sm:text-center max-sm:text-[12px] max-sm:leading-tight"]}>
+    <div
+      class="bg-[linear-gradient(90deg,#211747_0%,#45248d_48%,#8e236f_100%)] text-white"
+    >
+      <div
+        class:list={[
+          container,
+          "flex min-h-10.5 items-center justify-end gap-5.5 text-[14px] max-sm:min-h-14 max-sm:justify-center max-sm:text-center max-sm:text-[12px] max-sm:leading-tight",
+        ]}
+      >
         <span class="text-[#cfc8e2] max-sm:hidden">Accesos para clientes</span>
-        <nav class="flex items-center max-sm:grid max-sm:w-full max-sm:grid-cols-[1.35fr_.85fr] [&_a]:inline-flex [&_a]:min-h-[42px] [&_a]:items-center [&_a]:gap-2 [&_a]:font-semibold [&_a:hover]:text-brand-cyan [&_a_svg]:size-[17px] max-sm:[&_a]:min-h-14 max-sm:[&_a]:justify-center max-sm:[&_a]:gap-[5px] max-sm:[&_a]:px-2 max-sm:[&_a_svg]:size-[15px] [&_a+a]:ml-[22px] [&_a+a]:border-l [&_a+a]:border-white/20 [&_a+a]:pl-[22px] max-sm:[&_a+a]:ml-0 max-sm:[&_a+a]:pl-2" aria-label="Accesos a plataformas">
+        <nav
+          class="flex items-center max-sm:grid max-sm:w-full max-sm:grid-cols-[1.35fr_.85fr] [&_a]:inline-flex [&_a]:min-h-10.5 [&_a]:items-center [&_a]:gap-2 [&_a]:font-semibold [&_a:hover]:text-brand-cyan [&_a_svg]:size-4.25 max-sm:[&_a]:min-h-14 max-sm:[&_a]:justify-center max-sm:[&_a]:gap-1.25 max-sm:[&_a]:px-2 max-sm:[&_a_svg]:size-3.75 [&_a+a]:ml-5.5 [&_a+a]:border-l [&_a+a]:border-white/20 [&_a+a]:pl-5.5 max-sm:[&_a+a]:ml-0 max-sm:[&_a+a]:pl-2"
+          aria-label="Accesos a plataformas"
+        >
           <a href={edocsAccess} target="_blank" rel="noopener noreferrer">
             Consultar comprobantes electrónicos <Icon name="diagonal" />
           </a>
@@ -238,60 +273,83 @@ const modules = [
       </div>
     </div>
   </header>
+
   <main id="contenido">
-    <section class:list={[container, "grid grid-cols-[1.05fr_1fr] items-center gap-[52px] pb-16 pt-[68px] min-[1500px]:gap-20 min-[1500px]:py-20 max-[1100px]:gap-7 max-[850px]:grid-cols-2 max-[850px]:gap-5 max-[850px]:py-[52px] max-sm:grid-cols-1 max-sm:gap-9 max-sm:pb-9 max-sm:pt-[38px]"]} id="inicio" aria-labelledby="hero-title">
-      <div class="py-2.5 max-sm:p-0">
-        <p class="animate-fade-up mb-[26px] flex items-center gap-2.5 text-[15px] font-semibold max-[850px]:text-[13px] max-sm:mb-[23px]">
-          <span class="size-3.5 rounded-full bg-[conic-gradient(#ffbf43_0_33%,#2454c6_33%_66%,#ed489c_66%)]" aria-hidden="true"></span> Tecnología hecha
-          para Ecuador
-        </p>
-        <h1 class="animate-fade-up font-heading text-[clamp(56px,5.5vw,78px)] font-semibold leading-[1.055] tracking-[-0.065em] max-[1100px]:text-[62px] max-[850px]:text-[51px] max-sm:text-[clamp(47px,12.5vw,65px)] max-sm:leading-[1.06]" id="hero-title">Tu negocio,<br />en buena<br />conexión.</h1>
-        <p class="animate-fade-up mt-[26px] max-w-[455px] text-[19px] leading-[1.55] text-muted max-[850px]:text-[17px] max-sm:mt-[22px] max-sm:max-w-[450px] max-sm:text-[18px]">
+    <section
+      class:list={[
+        container,
+        "flex items-start gap-13 pb-16 pt-17 wide:gap-20 max-desktop:gap-7 max-tablet:gap-5 max-tablet:py-13 max-sm:flex-col max-sm:gap-9 max-sm:pb-9 max-sm:pt-9.5",
+      ]}
+      id="inicio"
+      aria-labelledby="hero-title"
+    >
+      <div class="min-w-0 flex-1 py-2.5 max-sm:w-full max-sm:p-0">
+        <h1
+          class="animate-fade-up font-heading text-[clamp(56px,5.5vw,78px)] font-semibold leading-[1.055] tracking-[-0.065em] max-desktop:text-[62px] max-tablet:text-[51px] max-sm:text-[clamp(47px,12.5vw,65px)] max-sm:leading-[1.06]"
+          id="hero-title"
+        >
+          Tu negocio,<br />en buena<br />conexión.
+        </h1>
+        <p
+          class="animate-fade-up mt-6.5 max-w-113.75 text-[19px] leading-[1.55] text-muted max-tablet:text-[17px] max-sm:mt-5.5 max-sm:max-w-112.5 max-sm:text-[18px]"
+        >
           Contabilidad, facturación electrónica, comprobantes y guías de
           remisión. Soluciones para organizar tu empresa y seguir creciendo.
         </p>
-        <div class="animate-fade-up mt-[30px] flex flex-wrap items-center gap-[21px] max-[1100px]:gap-3 max-[850px]:flex-col max-[850px]:items-start max-[850px]:gap-2.5 max-sm:mt-[25px] max-sm:flex-row max-sm:gap-x-[19px] max-sm:gap-y-3.5">
+        <div
+          class="animate-fade-up mt-7.5 flex flex-wrap items-center gap-5.25 max-desktop:gap-3 max-tablet:flex-col max-tablet:items-start max-tablet:gap-2.5 max-sm:mt-6.25 max-sm:flex-row max-sm:gap-x-4.75 max-sm:gap-y-3.5"
+        >
           <a
-            class:list={[button, "bg-brand-blue text-white hover:bg-[#193c99] max-[1100px]:px-4 max-[1100px]:text-[15px] max-sm:px-[19px] max-sm:text-[16px]"]}
+            class:list={[
+              button,
+              "bg-brand-blue text-white hover:bg-[#193c99] max-desktop:px-4 max-desktop:text-[15px] max-sm:px-4.75 max-sm:text-[16px]",
+            ]}
             href={contact}
             target="_blank"
             rel="noopener noreferrer"
             >Hablemos de tu negocio <Icon name="chat" /></a
-          ><a class:list={[textLink, "text-[16px] max-[1100px]:text-[15px]"]} href="#soluciones"
-            >Explorar soluciones <Icon name="down" /></a>
-        </div>
-        <div class="animate-fade-up mt-6 flex items-center gap-[9px] text-[14px] text-muted max-[850px]:text-[12px] max-sm:mt-[19px] max-sm:text-[13px] [&_svg]:size-[17px] [&_svg]:text-brand-blue">
-          <Icon name="check-circle" /><span
-            >Software en la nube. Personas a tu lado.</span>
+          ><a
+            class:list={[textLink, "text-[16px] max-desktop:text-[15px]"]}
+            href="#soluciones">Explorar soluciones <Icon name="down" /></a
+          >
         </div>
       </div>
-      <div class="min-w-0 max-sm:mx-auto max-sm:w-full max-sm:max-w-[470px]">
-        <Connection /><div class="flex items-center justify-center gap-[9px] pt-[21px] text-[13px] text-muted max-sm:pt-4 max-sm:text-[12px]">
-          <span class="size-1.5 rounded-full bg-brand-blue" aria-hidden="true"></span> Cada parte de tu negocio,
-          conectada.
-        </div>
+      <div
+        class="min-w-0 flex-1 max-sm:mx-auto max-sm:w-full max-sm:max-w-117.5"
+      >
+        <Connection />
       </div>
     </section>
     <div class="border-y border-line bg-[#faf9fc]">
-      <div class:list={[container, "grid grid-cols-[1.03fr_.94fr_1.05fr_1.15fr] py-[29px] max-[850px]:grid-cols-2 max-[850px]:gap-y-[26px] max-[850px]:py-[26px] max-sm:[&_svg]:size-[23px] [&>div]:flex [&>div]:items-center [&>div]:gap-[18px] [&>div]:border-l [&>div]:border-[#ded9e9] [&>div]:pl-[34px] [&>div]:text-[15px] [&>div]:leading-[1.4] [&>div]:text-muted max-[1100px]:[&>div]:gap-3 max-[1100px]:[&>div]:pl-[22px] max-[1100px]:[&>div]:text-[14px] max-[850px]:[&>div:nth-child(3)]:border-0 max-[850px]:[&>div:nth-child(3)]:pl-0 max-sm:[&>div]:gap-2.5 max-sm:[&>div]:pl-[18px] max-sm:[&>div]:text-[12px] [&>div:first-child]:flex-col [&>div:first-child]:items-start [&>div:first-child]:gap-0.5 [&>div:first-child]:border-0 [&>div:first-child]:pl-0 [&_svg]:size-[27px] [&_svg]:text-[#776899] [&_strong]:font-semibold [&_strong]:text-ink"]}>
+      <div
+        class:list={[
+          container,
+          "grid grid-cols-[1.03fr_.94fr_1.05fr_1.15fr] py-7.25 max-tablet:grid-cols-2 max-tablet:gap-y-6.5 max-tablet:py-6.5 max-sm:[&_svg]:size-5.75 [&>div]:flex [&>div]:items-center [&>div]:gap-4.5 [&>div]:border-l [&>div]:border-[#ded9e9] [&>div]:pl-8.5 [&>div]:text-[15px] [&>div]:leading-[1.4] [&>div]:text-muted max-desktop:[&>div]:gap-3 max-desktop:[&>div]:pl-5.5 max-desktop:[&>div]:text-[14px] max-tablet:[&>div:nth-child(3)]:border-0 max-tablet:[&>div:nth-child(3)]:pl-0 max-sm:[&>div]:gap-2.5 max-sm:[&>div]:pl-4.5 max-sm:[&>div]:text-[12px] [&>div:first-child]:flex-col [&>div:first-child]:items-start [&>div:first-child]:gap-0.5 [&>div:first-child]:border-0 [&>div:first-child]:pl-0 [&_svg]:size-6.75 [&_svg]:text-[#776899] [&_strong]:font-semibold [&_strong]:text-ink",
+        ]}
+      >
         <div>
-          <span class="font-heading text-[23px] font-semibold tracking-[-0.045em] text-ink max-[1100px]:text-[21px] max-sm:text-[20px]">Desde 2014</span><span
-            >implementando software</span>
+          <span
+            class="font-heading text-[23px] font-semibold tracking-[-0.045em] text-ink max-desktop:text-[21px] max-sm:text-[20px]"
+            >Desde 2014</span
+          ><span>implementando software</span>
         </div>
         <div>
           <Icon name="globe" /><span
-            >Soporte en todo<br /><strong>el Ecuador</strong></span>
+            >Soporte en todo<br /><strong>el Ecuador</strong></span
+          >
         </div>
         <div>
           <Icon name="cloud" /><span
             >Tu información disponible<br /><strong
               >desde cualquier lugar</strong
-            ></span>
+            ></span
+          >
         </div>
         <div>
           <Icon name="refresh" /><span
             >Servicio anual con<br /><strong>actualizaciones incluidas</strong
-            ></span>
+            ></span
+          >
         </div>
       </div>
     </div>
@@ -300,66 +358,64 @@ const modules = [
       id="soluciones"
       aria-labelledby="solutions-title"
     >
-      <div class="mb-11 flex items-end justify-between gap-[50px] max-[850px]:gap-[25px] max-sm:mb-[25px] max-sm:flex-col max-sm:items-start max-sm:gap-[17px]">
+      <div
+        class="mb-11 flex items-end justify-between gap-12.5 max-tablet:gap-6.25 max-sm:mb-6.25 max-sm:flex-col max-sm:items-start max-sm:gap-4.25"
+      >
         <div>
-          <p class={sectionLabel}>Nuestras soluciones</p><h2 class={heading2}
+          <p class={sectionLabel}>Nuestras soluciones</p><h2
+            class={heading2}
             id="solutions-title"
           >
             Cuatro soluciones.<br />Un negocio conectado.
           </h2>
-        </div><p class="pb-[5px] text-[18px] text-muted max-[850px]:max-w-[260px] max-[850px]:text-[16px] max-sm:max-w-none max-sm:text-[17px]">
+        </div><p
+          class="pb-1.25 text-[18px] text-muted max-tablet:max-w-65 max-tablet:text-[16px] max-sm:max-w-none max-sm:text-[17px]"
+        >
           Elige lo que tu empresa necesita hoy.<br />Nosotros te ayudamos a dar
           el siguiente paso.
         </p>
       </div>
-      <div class="mb-[42px] grid grid-cols-4 gap-3 border-b border-line max-[850px]:grid-cols-2 max-[850px]:gap-x-5 max-[850px]:gap-y-0 max-sm:mb-[29px] max-sm:gap-x-3" aria-label="Elige una solución">
-        {
-          products.map((p, i) => (
-            <a
-              href={`#${p.id}`}
-              class:list={["solution-choice group relative -mb-px flex min-w-0 items-center gap-4 border-b-[3px] border-transparent px-3 pb-[26px] pt-[22px] hover:bg-[#faf9fc] max-[1100px]:gap-2.5 max-[1100px]:px-1 max-[850px]:flex-row max-[850px]:items-center max-[850px]:px-1 max-[850px]:py-[18px] max-sm:gap-2", p.color, { active: i === 0 }]}
-              data-solution={p.id}
-              aria-current={i === 0 ? "true" : undefined}
-            >
-              <>
-                <span class="grid size-12 shrink-0 place-items-center rounded-[11px] bg-[var(--product-soft)] text-[var(--product-color)] max-[1100px]:size-[38px] max-sm:size-8 max-sm:[&_svg]:size-[21px]">
-                  <Icon name={p.icon} />
-                </span>
-                <span>
-                  <>
-                    <strong class="block font-heading text-[17px] font-semibold tracking-[-0.025em] max-[1100px]:text-[14px] max-[850px]:min-h-0 max-[850px]:text-[14px] max-sm:min-h-0 max-sm:text-[13px] max-sm:leading-[1.4]">{p.name}</strong>
-                    <span class="mt-0.5 block text-[15px] text-muted max-[1100px]:text-[12px] max-sm:text-[11px]">{productDetails[p.id].subtitle}</span>
-                  </>
-                </span>
-                <span class="hidden"><Icon name="diagonal" /></span>
-              </>
-            </a>
-          ))
-        }
-      </div>
-      <div class="product-panels">
+      <div
+        class="grid gap-30 pt-6 max-desktop:gap-24 max-tablet:gap-20 max-sm:gap-16 max-sm:pt-3"
+      >
         {
           products.map((p, i) => (
             <article
               id={p.id}
-              class:list={["product-panel grid scroll-mt-[25px] grid-cols-2 items-center gap-[72px] pt-5 max-[1100px]:gap-10 max-[850px]:grid-cols-1 max-[850px]:gap-[35px] max-sm:gap-[27px] max-sm:pt-2", p.color]}
-              data-panel={p.id}
+              class:list={[
+                "grid scroll-mt-42.5 grid-cols-2 items-center gap-18 max-desktop:gap-10 max-tablet:scroll-mt-38.75 max-tablet:grid-cols-1 max-tablet:gap-8.75 max-sm:gap-6.75",
+                p.color,
+              ]}
             >
-              <div class="product-copy max-[850px]:max-w-[600px]">
+              <div
+                class:list={[
+                  "product-copy max-tablet:order-1 max-tablet:max-w-150",
+                  { "order-2": i % 2 === 1 },
+                ]}
+              >
                 <>
-                  <p class="mb-4 text-[16px] font-semibold text-[var(--product-color)] max-sm:mb-[13px] max-sm:text-[14px]">{p.category}</p>
-                  <h3 class="max-w-[480px] text-balance font-heading text-[clamp(27px,2.6vw,36px)] font-semibold leading-[1.25] tracking-[-0.045em] max-[850px]:max-w-[600px] max-sm:text-[29px]">{p.title}</h3>
-                  <p class="mt-5 max-w-[480px] text-muted max-[850px]:max-w-[600px] max-sm:mt-[17px] max-sm:text-[17px]">{p.description}</p>
-                  <ul class="my-[25px] grid list-none grid-cols-2 gap-x-[18px] gap-y-3.5 p-0 max-sm:gap-x-2.5 max-sm:gap-y-[13px]">
+                  <p class="mb-4 text-[16px] font-semibold text-(--product-color) max-sm:mb-3.25 max-sm:text-[14px]">
+                    {p.category}
+                  </p>
+                  <h3 class="max-w-120 text-balance font-heading text-[clamp(27px,2.6vw,36px)] font-semibold leading-tight tracking-[-0.045em] max-tablet:max-w-150 max-sm:text-[29px]">
+                    {p.title}
+                  </h3>
+                  <p class="mt-5 max-w-120 text-muted max-tablet:max-w-150 max-sm:mt-4.25 max-sm:text-[17px]">
+                    {p.description}
+                  </p>
+                  <ul class="my-6.25 grid list-none grid-cols-2 gap-x-4.5 gap-y-3.5 p-0 max-sm:gap-x-2.5 max-sm:gap-y-3.25">
                     {p.features.map((f) => (
-                      <li class="flex items-start gap-2 text-[16px] leading-[1.35] max-sm:text-[14px] [&_svg]:mt-0.5 [&_svg]:size-[17px] [&_svg]:text-[var(--product-color)]">
+                      <li class="flex items-start gap-2 text-[16px] leading-[1.35] max-sm:text-[14px] [&_svg]:mt-0.5 [&_svg]:size-4.25 [&_svg]:text-(--product-color)">
                         <Icon name="check" />
                         {f}
                       </li>
                     ))}
                   </ul>
                   <a
-                    class:list={[button, "bg-[var(--product-color)] text-white hover:bg-ink max-sm:text-[16px]"]}
+                    class:list={[
+                      button,
+                      "bg-(--product-color) text-white hover:bg-ink max-sm:text-[16px]",
+                    ]}
                     href={whatsapp + encodeURIComponent(p.message)}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -370,16 +426,21 @@ const modules = [
                 </>
               </div>
               <div
-                class="overflow-hidden rounded-2xl border border-line bg-[var(--product-soft)] max-[850px]:w-full max-[850px]:max-w-[600px]"
+                class:list={[
+                  "product-illustration overflow-hidden rounded-2xl border border-line bg-(--product-soft) max-tablet:order-2 max-tablet:w-full max-tablet:max-w-150",
+                  { "order-1": i % 2 === 1 },
+                ]}
                 aria-label={`Funciones de ${p.name}`}
               >
-                <div class="flex items-center gap-3 border-b border-line bg-white px-[22px] py-4 max-sm:gap-[9px] max-sm:px-4 max-sm:py-3.5">
+                <div class="flex items-center gap-3 border-b border-line bg-white px-5.5 py-4 max-sm:gap-2.25 max-sm:px-4 max-sm:py-3.5">
                   <>
-                    <span class="grid size-[35px] shrink-0 place-items-center rounded-lg bg-[var(--product-soft)] text-[var(--product-color)] max-sm:size-[30px] [&_svg]:size-5">
+                    <span class="grid size-8.75 shrink-0 place-items-center rounded-lg bg-(--product-soft) text-(--product-color) max-sm:size-7.5 [&_svg]:size-5">
                       <Icon name={p.icon} />
                     </span>
-                    <strong class="font-heading text-[15px] font-semibold tracking-[-0.025em] max-sm:text-[13px]">{p.name}</strong>
-                    <span class="ml-auto flex items-center gap-1.5 text-[12px] text-muted max-sm:text-[11px] [&_svg]:size-[15px]">
+                    <strong class="font-heading text-[15px] font-semibold tracking-tight max-sm:text-[13px]">
+                      {p.name}
+                    </strong>
+                    <span class="ml-auto flex items-center gap-1.5 text-[12px] text-muted max-sm:text-[11px] [&_svg]:size-3.75">
                       <Icon
                         name={
                           i === 2
@@ -397,22 +458,26 @@ const modules = [
                     </span>
                   </>
                 </div>
-                <div class="px-[27px] pb-5 pt-[27px] text-center max-sm:px-[15px] max-sm:pb-[18px] max-sm:pt-[22px]">
+                <div class="px-6.75 pb-5 pt-6.75 text-center max-sm:px-3.75 max-sm:pb-4.5 max-sm:pt-5.5">
                   <span class="text-[14px] text-muted max-sm:text-[12px]">
                     {productDetails[p.id].kicker}
                   </span>
-                  <div class="illustration-hub relative flex flex-col items-center px-0 pb-[25px] pt-[22px]">
+                  <div class="illustration-hub relative flex flex-col items-center px-0 pb-6.25 pt-5.5">
                     <>
-                      <span class="mb-[9px] grid size-16 place-items-center rounded-2xl border border-white bg-white/70 text-[var(--product-color)] [&_svg]:size-[34px]">
+                      <span class="mb-2.25 grid size-16 place-items-center rounded-2xl border border-white bg-white/70 text-(--product-color) [&_svg]:size-8.5">
                         <Icon name={p.icon} />
                       </span>
-                      <strong class="font-heading text-[21px] tracking-[-0.04em]">{productDetails[p.id].hub}</strong>
-                      <span class="text-[13px] text-muted">{productDetails[p.id].hubDescription}</span>
+                      <strong class="font-heading text-[21px] tracking-[-0.04em]">
+                        {productDetails[p.id].hub}
+                      </strong>
+                      <span class="text-[13px] text-muted">
+                        {productDetails[p.id].hubDescription}
+                      </span>
                     </>
                   </div>
-                  <div class="connected-features relative grid grid-cols-2 gap-3 pt-[18px] max-sm:gap-[9px]">
+                  <div class="connected-features relative grid grid-cols-2 gap-3 pt-4.5 max-sm:gap-2.25">
                     {(p.visualFeatures ?? p.features).map((f, j) => (
-                      <div class="flex items-center gap-2.5 rounded-[7px] border border-white bg-white/75 px-[13px] py-[15px] text-left text-[13px] leading-[1.3] max-sm:gap-2 max-sm:px-[9px] max-sm:py-3 max-sm:text-[12px] [&_svg]:size-5 [&_svg]:text-[var(--product-color)] max-sm:[&_svg]:size-[18px]">
+                      <div class="flex items-center gap-2.5 rounded-[7px] border border-white bg-white/75 px-3.25 py-3.75 text-left text-[13px] leading-[1.3] max-sm:gap-2 max-sm:px-2.25 max-sm:py-3 max-sm:text-[12px] [&_svg]:size-5 [&_svg]:text-(--product-color) max-sm:[&_svg]:size-4.5">
                         <Icon
                           name={
                             (p.id === "guias-camaroneras"
@@ -424,7 +489,7 @@ const modules = [
                       </div>
                     ))}
                   </div>
-                  <div class="mt-[22px] flex items-center justify-center gap-2 text-[13px] text-muted max-sm:gap-1.5 max-sm:text-[11px] [&_svg]:size-4 [&_svg]:text-[var(--product-color)]">
+                  <div class="mt-5.5 flex items-center justify-center gap-2 text-[13px] text-muted max-sm:gap-1.5 max-sm:text-[11px] [&_svg]:size-4 [&_svg]:text-(--product-color)">
                     <Icon name="check-circle" />
                     {productDetails[p.id].note}
                   </div>
@@ -435,37 +500,59 @@ const modules = [
         }
       </div>
     </section>
-    <section class="bg-lavender py-[90px] max-[850px]:py-[58px]" aria-labelledby="modules-title">
-      <div class:list={[container, "grid grid-cols-[.85fr_1.15fr] gap-[100px] max-[1100px]:gap-[55px] max-[850px]:grid-cols-[1fr_1.3fr] max-[850px]:gap-[35px] max-sm:grid-cols-1 max-sm:gap-7"]}>
+    <section
+      class="bg-lavender py-22.5 max-tablet:py-14.5"
+      aria-labelledby="modules-title"
+    >
+      <div
+        class:list={[
+          container,
+          "grid grid-cols-[.85fr_1.15fr] gap-25 max-desktop:gap-13.75 max-tablet:grid-cols-[1fr_1.3fr] max-tablet:gap-8.75 max-sm:grid-cols-1 max-sm:gap-7",
+        ]}
+      >
         <div class="modules-intro">
-          <p class={sectionLabel}>Dentro de Cubo Contable</p><h2 class={heading2}
+          <p class={sectionLabel}>Dentro de Cubo Contable</p><h2
+            class={heading2}
             id="modules-title"
           >
             Cada área.<br />El mismo equipo.
-          </h2><p class="mt-6 max-w-[365px] text-muted max-sm:mt-[19px] max-sm:max-w-none max-sm:text-[17px]">
+          </h2><p
+            class="mt-6 max-w-91.25 text-muted max-sm:mt-4.75 max-sm:max-w-none max-sm:text-[17px]"
+          >
             De la primera factura al balance final: administra las áreas de tu
             empresa con información centralizada y en tiempo real.
-          </p><div class="relative mt-[35px] grid size-[130px] place-items-center rounded-full border border-[#dcd5f0] max-[850px]:hidden [&>svg]:size-[58px] [&>svg]:stroke-1 [&>svg]:text-[#8574b4]" aria-hidden="true">
-            <Icon name="cube" /><span class="absolute left-[15px] top-1.5 size-[13px] rounded-[3px] bg-brand-pink"></span><span
-              class="absolute -right-1 top-[54px] size-[13px] rounded-[3px] bg-brand-cyan"></span><span class="absolute -bottom-0.5 left-[29px] size-[13px] rounded-[3px] bg-brand-amber"
+          </p><div
+            class="relative mt-8.75 grid size-32.5 place-items-center rounded-full border border-[#dcd5f0] max-tablet:hidden [&>svg]:size-14.5 [&>svg]:stroke-1 [&>svg]:text-[#8574b4]"
+            aria-hidden="true"
+          >
+            <Icon name="cube" /><span
+              class="absolute left-3.75 top-1.5 size-3.25 rounded-[3px] bg-brand-pink"
+            ></span><span
+              class="absolute -right-1 top-13.5 size-3.25 rounded-[3px] bg-brand-cyan"
+            ></span><span
+              class="absolute -bottom-0.5 left-7.25 size-3.25 rounded-[3px] bg-brand-amber"
             ></span>
           </div>
         </div>
-        <div class="module-list [&_details]:border-b [&_details]:border-[#dcd5ea] [&_details:first-child]:border-t">
+        <div
+          class="module-list [&_details]:border-b [&_details]:border-[#dcd5ea] [&_details:first-child]:border-t"
+        >
           {
             modules.map((m, i) => (
               <details open={i === 0}>
                 <>
-                  <summary class="flex cursor-pointer list-none items-center justify-between gap-[18px] py-[23px] max-sm:py-[21px]">
+                  <summary class="flex cursor-pointer list-none items-center justify-between gap-4.5 py-5.75 max-sm:py-5.25">
                     <>
-                      <span class="flex items-center gap-[18px] font-heading text-[17px] font-medium tracking-[-0.03em] max-[850px]:gap-3 max-[850px]:text-[15px] max-sm:gap-3.5 max-sm:text-[16px] [&_svg]:size-[23px] [&_svg]:text-[#75639e]">
+                      <span class="flex items-center gap-4.5 font-heading text-[17px] font-medium tracking-[-0.03em] max-tablet:gap-3 max-tablet:text-[15px] max-sm:gap-3.5 max-sm:text-[16px] [&_svg]:size-5.75 [&_svg]:text-[#75639e]">
                         <Icon name={m.icon} />
                         {m.title}
                       </span>
                       <span class="expand-mark" aria-hidden="true" />
                     </>
                   </summary>
-                  <p class="max-w-[530px] pb-6 pl-[41px] pr-[35px] text-[17px] text-muted max-sm:px-[15px] max-sm:pb-6 max-sm:pl-[37px] max-sm:text-[16px]">{m.text}</p>
+                  <p class="max-w-132.5 pb-6 pl-10.25 pr-8.75 text-[17px] text-muted max-sm:px-3.75 max-sm:pb-6 max-sm:pl-9.25 max-sm:text-[16px]">
+                    {m.text}
+                  </p>
                 </>
               </details>
             ))
@@ -474,34 +561,62 @@ const modules = [
       </div>
     </section>
     <section
-      class:list={[container, sectionSpace, "grid grid-cols-[.8fr_1.2fr] items-center gap-[90px] max-[1100px]:gap-[55px] max-[850px]:grid-cols-[.75fr_1.25fr] max-[850px]:gap-[35px] max-sm:grid-cols-1 max-sm:gap-[38px]"]}
+      class:list={[
+        container,
+        sectionSpace,
+        "grid grid-cols-[.8fr_1.2fr] items-center gap-22.5 max-desktop:gap-13.75 max-tablet:grid-cols-[.75fr_1.25fr] max-tablet:gap-8.75 max-sm:grid-cols-1 max-sm:gap-9.5",
+      ]}
       id="nosotros"
       aria-labelledby="about-title"
     >
-      <div class="about-brand rounded-b-3xl rounded-t-[160px] border border-line bg-[#faf9fd] px-[22px] pb-10 pt-[45px] text-center max-[850px]:px-2.5 max-[850px]:py-6 max-sm:order-2 max-sm:m-auto max-sm:w-full max-sm:max-w-[400px] max-sm:pb-8">
+      <div
+        class="about-brand rounded-b-3xl rounded-t-[160px] border border-line bg-[#faf9fd] px-5.5 pb-10 pt-11.25 text-center max-tablet:px-2.5 max-tablet:py-6 max-sm:order-2 max-sm:m-auto max-sm:w-full max-sm:max-w-100 max-sm:pb-8"
+      >
         <div class="brand-orbit" aria-hidden="true">
           <span></span><span></span><span></span><div>
             Desde<br /><strong>2014</strong>
           </div>
-        </div><p class="mt-[26px] text-[20px] leading-[1.5] max-[850px]:mt-0 max-[850px]:text-[16px] max-sm:mt-5 max-sm:text-[19px] [&_strong]:font-semibold">
+        </div><p
+          class="mt-6.5 text-[20px] leading-normal max-tablet:mt-0 max-tablet:text-[16px] max-sm:mt-5 max-sm:text-[19px] [&_strong]:font-semibold"
+        >
           Conectamos tecnología.<br /><strong>Acompañamos personas.</strong>
         </p>
       </div>
       <div>
-        <p class={sectionLabel}>Somos Winnova Solutions</p><h2 class:list={[heading2, "max-w-[580px] text-[clamp(30px,3vw,40px)] max-sm:text-[32px]"]} id="about-title">
+        <p class={sectionLabel}>Somos Winnova Solutions</p><h2
+          class:list={[
+            heading2,
+            "max-w-145 text-[clamp(30px,3vw,40px)] max-sm:text-[32px]",
+          ]}
+          id="about-title"
+        >
           La tecnología funciona mejor cuando hay alguien a tu lado.
-        </h2><p class="mt-6 text-muted max-sm:mt-[19px] max-sm:text-[17px]">
+        </h2><p class="mt-6 text-muted max-sm:mt-4.75 max-sm:text-[17px]">
           Somos un equipo multidisciplinario de profesionales en tecnologías de
           la información. Implementamos software y brindamos soporte tecnológico
           de primer nivel en todo el Ecuador.
-        </p><div class="my-[30px] grid grid-cols-2 gap-7 max-[850px]:gap-5 max-sm:gap-[19px] [&_svg]:size-6 [&_svg]:text-brand-blue">
+        </p><div
+          class="my-7.5 grid grid-cols-2 gap-7 max-tablet:gap-5 max-sm:gap-4.75 [&_svg]:size-6 [&_svg]:text-brand-blue"
+        >
           <div>
-            <Icon name="shield" /><h3 class="mb-2 mt-[9px] font-heading text-[16px] font-semibold tracking-[-0.025em] max-[850px]:text-[14px] max-sm:text-[15px] max-sm:leading-[1.4]">Información resguardada</h3><p class="text-[16px] leading-[1.5] text-muted max-sm:text-[15px]">
+            <Icon name="shield" /><h3
+              class="mb-2 mt-2.25 font-heading text-[16px] font-semibold tracking-tight max-tablet:text-[14px] max-sm:text-[15px] max-sm:leading-[1.4]"
+            >
+              Información resguardada
+            </h3><p
+              class="text-[16px] leading-normal text-muted max-sm:text-[15px]"
+            >
               Cubo Contable opera en servidores AWS con monitoreo y respaldos
               permanentes.
             </p>
           </div><div>
-            <Icon name="refresh" /><h3 class="mb-2 mt-[9px] font-heading text-[16px] font-semibold tracking-[-0.025em] max-[850px]:text-[14px] max-sm:text-[15px] max-sm:leading-[1.4]">Siempre al día</h3><p class="text-[16px] leading-[1.5] text-muted max-sm:text-[15px]">
+            <Icon name="refresh" /><h3
+              class="mb-2 mt-2.25 font-heading text-[16px] font-semibold tracking-tight max-tablet:text-[14px] max-sm:text-[15px] max-sm:leading-[1.4]"
+            >
+              Siempre al día
+            </h3><p
+              class="text-[16px] leading-normal text-muted max-sm:text-[15px]"
+            >
               El servicio anual incluye mejoras y actualizaciones por cambios
               del SRI, sin cargos adicionales.
             </p>
@@ -510,47 +625,81 @@ const modules = [
       </div>
     </section>
     <section
-      class="relative bg-ink py-[84px] text-white max-sm:py-[58px]"
+      class="relative bg-ink py-21 text-white max-sm:py-14.5"
       id="soporte"
       aria-labelledby="support-title"
     >
-      <div class:list={[container, "grid grid-cols-[1.15fr_.85fr] items-center gap-[100px] max-[1100px]:gap-[55px] max-[850px]:gap-[35px] max-sm:grid-cols-1"]}>
+      <div
+        class:list={[
+          container,
+          "grid grid-cols-[1.15fr_.85fr] items-center gap-25 max-desktop:gap-13.75 max-tablet:gap-8.75 max-sm:grid-cols-1",
+        ]}
+      >
         <div>
-          <p class:list={[sectionLabel, "text-[#98dfea]"]}>Soporte que te acompaña</p><h2 class:list={[heading2, "text-[clamp(32px,3.2vw,44px)] max-sm:text-[32px]"]}
+          <p class:list={[sectionLabel, "text-[#98dfea]"]}>
+            Soporte que te acompaña
+          </p><h2
+            class:list={[
+              heading2,
+              "text-[clamp(32px,3.2vw,44px)] max-sm:text-[32px]",
+            ]}
             id="support-title"
           >
             Detrás del software,<br />hay personas.
-          </h2><p class="mt-6 max-w-[450px] text-[#c7c0dd] max-sm:mt-[19px] max-sm:text-[17px]">
+          </h2><p
+            class="mt-6 max-w-112.5 text-[#c7c0dd] max-sm:mt-4.75 max-sm:text-[17px]"
+          >
             Resuelve tus dudas con nuestro equipo. Consultas ilimitadas por
             WhatsApp y asistencia remota con Supremo cuando la necesites.
-          </p><div class="mt-8 flex items-center gap-4 max-sm:mt-6 [&>svg]:size-6 [&>svg]:text-[#98dfea]">
+          </p><div
+            class="mt-8 flex items-center gap-4 max-sm:mt-6 [&>svg]:size-6 [&>svg]:text-[#98dfea]"
+          >
             <Icon name="clock" /><div>
-              <strong class="block text-[16px]">Lunes a viernes</strong><span class="mt-[3px] block text-[15px] text-[#c7c0dd] max-sm:text-[13px]"
-                >8:30 a. m. a 6:00 p. m. · Hora de Ecuador</span>
+              <strong class="block text-[16px]">Lunes a viernes</strong><span
+                class="mt-0.75 block text-[15px] text-[#c7c0dd] max-sm:text-[13px]"
+                >8:30 a. m. a 6:00 p. m. · Hora de Ecuador</span
+              >
             </div>
           </div>
           <a
-            class:list={[button, "mt-[30px] w-full max-w-[410px] justify-between bg-[#98dfea] text-ink hover:bg-white max-sm:max-w-none max-sm:px-4 max-sm:text-[15px]"]}
+            class:list={[
+              button,
+              "mt-7.5 w-full max-w-102.5 justify-between bg-[#98dfea] text-ink hover:bg-white max-sm:max-w-none max-sm:px-4 max-sm:text-[15px]",
+            ]}
             href={supremoDownload}
             download="Supremo_Winnova.exe"
           >
             Descargar Supremo – Soporte remoto <Icon name="download" />
           </a>
-          <span class="mt-[9px] block text-[13px] text-[#a9a0c3]">Para Windows · archivo .exe</span>
+          <span class="mt-2.25 block text-[13px] text-[#a9a0c3]"
+            >Para Windows · archivo .exe</span
+          >
         </div>
-        <div class="contact-card rounded-[18px] border border-[#554776] bg-[#302353] p-9 max-[1100px]:p-7">
-          <span class="mb-5 grid size-[45px] place-items-center rounded-xl bg-[#453562] text-[#a8e4ed]"><Icon name="chat" /></span><h3 class="font-heading text-[26px] font-medium leading-[1.35] tracking-[-0.035em] max-[850px]:text-[22px] max-sm:text-[25px]">
+        <div
+          class="contact-card rounded-[18px] border border-[#554776] bg-[#302353] p-9 max-desktop:p-7"
+        >
+          <span
+            class="mb-5 grid size-11.25 place-items-center rounded-xl bg-[#453562] text-[#a8e4ed]"
+            ><Icon name="chat" /></span
+          ><h3
+            class="font-heading text-[26px] font-medium leading-[1.35] tracking-[-0.035em] max-tablet:text-[22px] max-sm:text-[25px]"
+          >
             Conversemos sobre<br />tu próximo paso.
-          </h3><p class="mt-[15px] text-[17px]">
+          </h3><p class="mt-3.75 text-[17px]">
             Cuéntanos qué necesita tu empresa.<br />Te ayudamos a encontrar la
             solución.
           </p><a
-            class:list={[button, "mt-[26px] w-full justify-between bg-white text-ink hover:bg-[#eae3fb] max-sm:px-4 max-sm:text-[15px]"]}
+            class:list={[
+              button,
+              "mt-6.5 w-full justify-between bg-white text-ink hover:bg-[#eae3fb] max-sm:px-4 max-sm:text-[15px]",
+            ]}
             href={contact}
             target="_blank"
             rel="noopener noreferrer"
             >Escribir por WhatsApp <Icon name="diagonal" /></a
-          ><div class="mt-3 flex justify-between gap-[18px] text-[16px] text-[#d4cde6] max-[850px]:flex-col max-[850px]:gap-0 max-sm:flex-row max-sm:gap-2.5 max-sm:text-[14px] [&_a]:flex [&_a]:min-h-11 [&_a]:items-center [&_a:hover]:text-white [&_a:hover]:underline">
+          ><div
+            class="mt-3 flex justify-between gap-4.5 text-[16px] text-[#d4cde6] max-tablet:flex-col max-tablet:gap-0 max-sm:flex-row max-sm:gap-2.5 max-sm:text-[14px] [&_a]:flex [&_a]:min-h-11 [&_a]:items-center [&_a:hover]:text-white [&_a:hover]:underline"
+          >
             <a
               href="https://wa.me/593984206215"
               target="_blank"
@@ -558,15 +707,21 @@ const modules = [
             ><a
               href="https://wa.me/593998445241"
               target="_blank"
-              rel="noopener noreferrer">099 844 5241</a>
+              rel="noopener noreferrer">099 844 5241</a
+            >
           </div>
         </div>
       </div>
     </section>
   </main>
-  <footer class:list={[container, "pb-[22px] pt-[42px] max-sm:pt-8"]}>
-    <div class="flex items-center gap-11 pb-8 max-[850px]:gap-[25px] max-sm:flex-wrap max-sm:gap-5">
-      <a class="inline-block shrink-0 max-sm:w-full [&_img]:mix-blend-multiply [&_img]:brightness-[1.035]" href="#inicio" aria-label="Winnova Solutions, volver al inicio"
+  <footer class:list={[container, "pb-5.5 pt-10.5 max-sm:pt-8"]}>
+    <div
+      class="flex items-center gap-11 pb-8 max-tablet:gap-6.25 max-sm:flex-wrap max-sm:gap-5"
+    >
+      <a
+        class="inline-block shrink-0 max-sm:w-full [&_img]:mix-blend-multiply [&_img]:brightness-[1.035]"
+        href="#inicio"
+        aria-label="Winnova Solutions, volver al inicio"
         ><Image
           src={logo}
           alt="Winnova Solutions"
@@ -574,12 +729,21 @@ const modules = [
           height={65}
           loading="lazy"
         /></a
-      ><p class="text-[16px] text-muted max-sm:text-[14px]">Soluciones que conectan.<br />Personas que acompañan.</p><a
-        class:list={[textLink, "ml-auto text-[15px] max-sm:text-[13px] max-sm:[&_svg]:gap-[5px]"]}
-        href="#inicio">Volver al inicio <Icon name="up" /></a>
-    </div><div class="flex flex-wrap justify-between gap-2.5 border-t border-line pt-5 text-[13px] text-muted max-sm:text-[12px]">
+      ><p class="text-[16px] text-muted max-sm:text-[14px]">
+        Soluciones que conectan.<br />Personas que acompañan.
+      </p><a
+        class:list={[
+          textLink,
+          "ml-auto text-[15px] max-sm:text-[13px] max-sm:[&_svg]:gap-1.25",
+        ]}
+        href="#inicio">Volver al inicio <Icon name="up" /></a
+      >
+    </div><div
+      class="flex flex-wrap justify-between gap-2.5 border-t border-line pt-5 text-[13px] text-muted max-sm:text-[12px]"
+    >
       <span>© {new Date().getFullYear()} Winnova Solutions</span><span
-        >Tecnología para empresas en Ecuador</span>
+        >Tecnología para empresas en Ecuador</span
+      >
     </div>
   </footer>
 </Layout>

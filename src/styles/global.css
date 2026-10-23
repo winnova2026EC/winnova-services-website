@@ -12,6 +12,9 @@
   --color-line: #e6e3ee;
   --font-heading: "Sora", "Segoe UI", sans-serif;
   --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+  --breakpoint-tablet: 53.125rem;
+  --breakpoint-desktop: 68.75rem;
+  --breakpoint-wide: 93.75rem;
 }
 
 @layer base {
@@ -29,8 +32,6 @@
 .pink { --product-color: #b42a70; --product-soft: #fcecf4; }
 .amber { --product-color: #946008; --product-soft: #fff5df; }
 .cyan { --product-color: #08768b; --product-soft: #e6f8fc; }
-.solution-choice.active { border-bottom-color: var(--product-color); }
-
 /* These connector strokes and disclosure marks require generated geometry. */
 .illustration-hub::after {
   content: ""; position: absolute; bottom: 0; width: 1px; height: 19px;
